@@ -1,7 +1,7 @@
 import Button from "./components/Button";
 import { motion } from "framer-motion";
 import Header from "./components/Header";
-import { Bars3Icon, BeakerIcon, CircleStackIcon, CodeBracketIcon, CommandLineIcon, ComputerDesktopIcon, GlobeAltIcon, KeyIcon, LinkIcon, XMarkIcon } from '@heroicons/react/24/outline' // Importando ícones do Heroicons
+import { BeakerIcon, CircleStackIcon, CodeBracketIcon, CommandLineIcon, ComputerDesktopIcon, GlobeAltIcon, KeyIcon, LinkIcon } from '@heroicons/react/24/outline' // Importando ícones do Heroicons
 
 const App = () => {
   const handleClick = () => {
