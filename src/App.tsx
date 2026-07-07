@@ -4,12 +4,12 @@ import Header from "./components/Header";
 import { BeakerIcon, CircleStackIcon, CodeBracketIcon, CommandLineIcon, ComputerDesktopIcon, GlobeAltIcon, KeyIcon, LinkIcon } from '@heroicons/react/24/outline' // Importando ícones do Heroicons
 
 const App = () => {
-  const handleClick = () => {
-    alert("Botão clicado!");
+  const scrollTo = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
   };
 
   const handleDownload = () => {
-    alert("Downloading Resume...");
+    window.open('https://www.linkedin.com/in/jonathasribeiroreal', '_blank', 'noopener');
   };
 
   return (
@@ -17,20 +17,17 @@ const App = () => {
       {/* Header */}
       <Header>
         <nav className="flex space-x-6 flex-wrap justify-center">
-          <Button label="Home" variant="secondary" onClick={handleClick} />
-          <Button label="About" variant="secondary" onClick={handleClick} />
-          <Button
-            label="Experience"
-            variant="secondary"
-            onClick={handleClick}
-          />
-          <Button label="Projects" variant="secondary" onClick={handleClick} />
-          <Button label="Contact Me" variant="primary" onClick={handleClick} />
+          <Button label="Home" variant="secondary" onClick={() => scrollTo('home')} />
+          <Button label="About" variant="secondary" onClick={() => scrollTo('about')} />
+          <Button label="Experience" variant="secondary" onClick={() => scrollTo('services')} />
+          <Button label="Projects" variant="secondary" onClick={() => window.open('https://github.com/jonathasribeiro', '_blank', 'noopener')} />
+          <Button label="Contact Me" variant="primary" onClick={() => scrollTo('about')} />
         </nav>
       </Header>
 
       {/* Main Content Section Below Header */}
       <motion.section
+        id="home"
         className="flex items-center justify-center flex-col py-32 space-y-12"
         initial={{ opacity: 0, y: 100 }}
         animate={{ opacity: 1, y: 0 }}
@@ -69,7 +66,7 @@ const App = () => {
             animate={{ opacity: 1 }}
             transition={{ delay: 1.5, duration: 1 }}
           >
-            Fullstack Engineer
+            Fullstack Engineer & Software Architect
           </motion.div>
 
           {/* Description */}
@@ -88,12 +85,13 @@ const App = () => {
           </motion.p>
 
           {/* Contact Button */}
-          <Button label="Contact Me" variant="primary" onClick={handleClick} />
+          <Button label="Contact Me" variant="primary" onClick={() => scrollTo('about')} />
         </motion.div>
       </motion.section>
 
       {/* About Me Section */}
       <motion.section
+        id="about"
         className="bg-[#1a1a1a] min-h-screen flex flex-col items-center text-white py-32 space-y-8"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
@@ -165,6 +163,7 @@ const App = () => {
 
       {/* Services Section */}
       <motion.section
+        id="services"
         className="bg-[#1a1a1a] min-h-screen flex flex-col items-center text-white space-y-12"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
